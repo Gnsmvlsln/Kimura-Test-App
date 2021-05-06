@@ -1,0 +1,181 @@
+ion-back-button {
+    font-size: 12px;
+    --padding-start: 10px;
+    color: black;
+}
+ion-title {
+    padding-left: 30px;
+}
+.video-details-parent {
+    padding-left: 15px;
+    .video-title {
+        p {
+            font-size: 26px;
+            margin-bottom: 5px;
+            color: #e75480;
+        }
+    }
+    .dateText {
+        padding-top: 10px;
+        font-size: 12px;
+    }
+    .buttons {
+    .videoButtons {
+        display: flex;
+        padding-top: 10px;
+        .videoButton {
+            display: flex;
+            ion-icon {
+                font-size: 25px;
+            }
+            p {
+                font-size: 16px;
+                margin-top: 8px;
+                padding-left: 5px;
+                padding-right: 20px;
+                font-size: 14px;
+            }
+            .liked-class {
+                color: red;
+            }
+            .unliked-class {
+                color: red;
+            }
+            .eye {
+                color: #5F9EA0;
+            }
+            .star {
+                color: #FFA500;
+            }
+        }
+    }
+}
+}
+.header-text {
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.parent-div {
+    display: flex;
+    margin: 15px;
+    background:  #F5F5F5;
+    padding: 5px 1px 2px 5px;
+    border-radius: 10px;
+.video-thumbnail {
+    height: 65px;
+    width: 80px;
+    border-radius: 10px;
+    background-size: contain;
+    border: 1px solid grey;
+}
+.video-title-parent {
+    padding-left: 10px;
+    .video-title-child {
+        .video-p {
+            margin-bottom: -10px;
+        }
+    }
+    .video-detials {
+        display: flex;
+        .likes {
+            padding-right: 10px;
+            font-size: 14px;
+        }
+        .views {
+            padding-right: 10px;
+            font-size: 14px;
+        }
+        .rating {
+            padding-right: 10px;
+            font-size: 14px;
+        }
+    }
+}
+}
+.comment-section {
+    padding: 20px;
+    padding-top: 0;
+    .comments {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .comment-section-parent {
+        .comment-outer-box {
+            padding-bottom: 25px;
+            display: flex;
+        .profile-image {
+            height: 45px;
+            width: 45px;
+            background-size: cover;
+        }
+        .comment-texts {
+            padding-left: 15px;
+            .comment {
+                font-size: 15px;
+            }
+            .username {
+                font-size: 12px;
+            }
+            .date {
+                font-size: 12px;
+            }
+            .likeAndReply {
+                display: flex;
+                .like {
+                    padding-right: 15px;
+                    font-size: 14px;
+                }
+                .reply {
+                    font-size: 14px;
+
+                }
+            }
+            .replySection {
+                padding: 20px;
+                .replyText {
+                    padding-bottom: 10px;
+                }
+                .name {
+                    font-size: 12px;
+                }
+                .replyForm {
+                    .main-form-class {
+
+                    }
+                }
+                .date {
+                    font-size: 12px;
+
+                }
+                .main-form-class {
+                    .replyClass {
+                        textarea {
+                            outline: none;
+                        }
+                    }
+                    .submitButton {
+                        height: 21px;
+                        button {
+                            padding-bottom: 10px;
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    }
+    .loadMoreButton {
+        text-align: center;
+
+    }
+    .addComment {
+        .comment-button {
+            // text-align: end;
+            ion-button {
+                width: 100%;
+            }
+        }
+    }
+}

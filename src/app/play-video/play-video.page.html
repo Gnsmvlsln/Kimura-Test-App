@@ -1,0 +1,159 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="ios" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Play video</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div >
+    <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(videoUrl)" allow="autoplay;" frameborder="0"
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="background: black;" height="200" width="100%" allowfullscreen></iframe>
+    <!-- <video width="100%" controls>
+      <source [src]="videoUrl" type="video/mp4">
+      Your browser does not support HTML video.
+    </video> -->
+  </div>
+
+  <div>
+  <div class="video-details-parent">
+    <div class="video-title">
+      <p>{{videoTitle}}</p>
+    </div>
+    <div>
+      {{videoDesc}}
+    </div>
+    <div class="dateText">
+      Uploaded on : {{videoUploadedDate}}
+    </div>
+    <div class="buttons">
+      <div class="videoButtons">
+        <div class="videoButton" (click)="likeButtonClicked()">
+          <ion-icon class="liked-class" *ngIf="videLiked === 0" name="heart-outline"></ion-icon>
+          <ion-icon class="unliked-class" *ngIf="videLiked !== 0" name="heart"></ion-icon>
+          <p>{{videoLikes}} Likes</p>
+        </div>
+        <div class="videoButton">
+          <ion-icon class="eye" name="eye"></ion-icon>
+          <p>{{videoViews}} Views</p>
+        </div>
+        <div class="videoButton" >
+          <ion-icon class="star" name="star"></ion-icon>
+          <p>{{avgRating}} Rating </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="comment-section" id='comments'>
+    <div class="addComment">
+      <form [formGroup] = "commentForm" (ngSubmit)="addComment()">
+      <ion-item>
+        <ion-label position="floating">Add a comment to the video</ion-label>
+        <ion-textarea formControlName="comment_textarea"></ion-textarea>
+      </ion-item>
+      <div class="comment-button">
+        <ion-button type="ngSubmit"> Add </ion-button>
+      </div>
+    </form>
+    </div>
+
+    <div class="shareAndRate">
+      <div>
+        <div>
+          <p><a (click)="openModal()">Rate this video ? click here</a></p>
+        </div>
+      </div>
+    </div>
+
+
+    <p class="comments">Comments ({{videoComments}})</p>
+    <div class="comment-section-parent">
+      <div class="comment-outer-box" *ngFor="let comment of commentsArrayPrimary">
+        <div class="profile-image" [ngStyle]="{'background-image':'url('+comment.profile_image+')'}">
+
+        </div>
+        <div class="comment-texts">
+          <div class="comment">
+            {{comment.comment}}
+          </div>
+          <div class="username">
+            {{comment.name}}
+          </div>
+          <div class="date">
+            {{comment.created_at}}
+          </div>
+          <div class="likeAndReply">
+            <div class="like" (click)="likeComment(comment.id)">
+              <ion-icon  name="thumbs-up-outline"></ion-icon>
+              {{comment.likes}}
+            </div>
+            <div class="reply" (click)="openReply(comment.id)">
+              replies
+            </div>
+          </div>
+          <div class="replySection" *ngIf="currentReply === comment.id && isCReplySectionOpened">
+            <div >
+              <form [formGroup] = "replyForm" (ngSubmit)="replyComment(comment.id)">
+                <div class="main-form-class">
+                  <div class="replyClass">
+                    <textarea formControlName="replyComment" placeholder="reply comment"></textarea>
+                  </div>
+                  <div class="submitButton">
+                    <button type="ngSubmit"> Reply </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div *ngIf="currentReply === comment.id && replyResults.length">
+            <div *ngFor="let reply of replyResults">
+
+              <div>
+                <div class="commentsProfileImage" [ngStyle]="{'background-image':'url('+reply.profile_image+')'}">
+                </div>
+                <div class="replyText">
+                  <div class="comment">
+                    {{reply.comment}}
+                  </div>
+                  <div class="replyForm" *ngIf="isReplyCommentEdited && replyCommentId === reply.id">
+                    <form [formGroup] = "editReplyForm" (ngSubmit)="EditreplyComment(reply.id, comment.id)">
+                      <div class="main-form-class">
+                        <div class="replyClass">
+                          <textarea formControlName="EditreplyComment" placeholder="reply comment"></textarea>
+                        </div>
+                        <div class="submitButton">
+                          <button type="ngSubmit"> Save </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div class="name" >
+                    {{reply.name}}
+                  </div>
+
+                  <div class="date">
+                    {{reply.created_at}}
+                  </div>
+                  <div *ngIf="currentUsername === reply.name">
+                    <!-- <button (click)="editReplyComment(reply.id,reply.comment)">save</button> -->
+                    <button (click)="openEditBox(reply.id,reply.comment)">Edit</button>
+                    <button (click)="deleteReplyComment(reply.id)">Delete  </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="loadMoreButton">
+      <a (click)="loadMoreComments()">Show more comments</a>
+      <!-- <a (click)="showLess()">Show less</a> -->
+    </div>
+  </div>
+</ion-content>

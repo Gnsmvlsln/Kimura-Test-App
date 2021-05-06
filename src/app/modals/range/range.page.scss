@@ -1,0 +1,29 @@
+.modal-header {
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    p {
+        margin-bottom: 0;
+    }
+}
+.buttons{
+    width: 100%;
+    text-align: center;
+    button {
+        height: 35px;
+        width: 30%;
+        background: #C21E56;
+        border-radius: 3px;
+        color: white;
+        margin: 5px;
+    }
+}
+.rangeText {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}

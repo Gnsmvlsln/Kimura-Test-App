@@ -1,0 +1,58 @@
+
+<ion-content>
+  <div  class="main-content">
+    <div class="logo">
+      <span>Demo</span>
+    </div>
+  <form [formGroup] = "loginForm" (ngSubmit)="login()">
+    <div class="main-form-class">
+      <div class="usernameClass">
+        <label>Username</label>
+        <input formControlName="username" placeholder="Your name"/>
+      </div>
+
+      <div class="passwordClass">
+        <label>Password</label>
+        <div class="showPassword">
+          <input formControlName="password" [type]="fieldTextType ? 'text' : 'password'" placeholder="********"/>
+          <div class="showpasswordIcon"> <ion-icon [name]="fieldTextType ? 'eye-outline' : 'eye-off-outline'" (click)="togglePassword()"></ion-icon> </div>
+        </div>
+      </div>
+
+      <div class="submitButton">
+        <button type="ngSubmit"> Login </button>
+      </div>
+    </div>
+  </form>
+  <div class="forgotPassword">
+    <p (click)="navigateToForgotPassword()">Forgot Password?</p>
+  </div>
+  <div>
+    <div class="hrClass">
+      <div class="hr"><hr/></div>
+      <span>Or</span>
+      <div class="hr"><hr/></div>
+    </div>
+  </div>
+  <div class="socialIcons">
+
+    <div class="socialIcons-parent">
+
+    <div class="googleClass">
+      <span>Sign Up with</span>
+      <div>
+        <img src='../../assets/google.png'/>
+        <img src='../../assets/facebook.png'/>
+      </div>
+    </div>
+  </div>
+    <div>
+
+    </div>
+  </div>
+  <div class="noAccount">
+    <p>Don't have an account? <a (click)="navigateToRegister()">Sign Up</a></p>
+  </div>
+</div>
+</ion-content>
+

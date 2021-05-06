@@ -1,17 +1,113 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="header-image">
+    <div class="header-top-div">
+      <div class="header-top-div-two">
+        <div class="header-top-div-two-child">
+          <ion-icon name="menu-outline" (click)="openNav()"></ion-icon>
+        </div>
+      </div>
+      <div class="header-top-div-three">
+        <div class="search-class">
+          <ion-icon name="search-outline"></ion-icon>
+        </div>
+        <div class="profile-class">
+          <ion-avatar>
+            <img style="max-width: 56%;
+            max-height: 38px" class="avatr-image" src="../../assets/men.jpeg">
+          </ion-avatar>
+        </div>
+      </div>
+    </div>
+    <div class="header-text-class">
+      <p class="user-name-class">Hi, {{userData.name}}</p>
+      <p class="welcome">Welcome to Kimora</p>
+    </div>
+  </div>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <a class="kimura-head">Kimura</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+    <a click="logout()">Logout</a>
+  </div>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="body-tab-class-parent">
+    <div class="body-tab-class-child">
+      <div class="single-tab" *ngFor="let tab of tabs" (click)="clickedTab(tab.id)">
+        <div class="tab-round-box" [ngClass]="{'tab-round-box-active':tab.isSelected}">
+        <ion-icon [name]="tab.icon"></ion-icon>
+        </div>
+        <p [ngClass]="{'p-active':tab.isSelected}">{{tab.tabname}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="trending-class" (click)="callApi()">Trending</div>
+
+  <ion-slides class="carousel-slide-class" [options]="slideOpts">
+    <ion-slide *ngFor = "let blog of blogsArray; let i = index">
+      <div class="single-slide-class" [ngStyle]="{'background-image':'url('+blog.thumbnail_image+')'}">
+        <div class="slide-parent">
+          <div class="carousel-date-text">{{blog.publish_date}}</div>
+          <div class="carousel-inner-text">{{blog.title}}</div>
+        </div>
+      </div>
+    </ion-slide>
+    <!-- <ion-slide>
+      <div class="single-slide-class">
+        <div class="slide-parent">
+          <div class="carousel-date-text">January 01</div>
+          <div class="carousel-inner-text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</div>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="single-slide-class">
+        <div class="slide-parent">
+          <div class="carousel-date-text">January 01</div>
+          <div class="carousel-inner-text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</div>
+        </div>
+      </div>
+    </ion-slide> -->
+  </ion-slides>
+
+  <div class="latest-feeds-heading">
+    <div class="latest-feeds-heading-child">Latest Feeds</div>
+  </div>
+  <div class="latest-feeds-body">
+    <div>
+      <div class="grid-pair-class" *ngFor = "let blog of newArrayBlogs; let i = index">
+        <div class="latest-feeds-grid" *ngFor = "let item of blog; let i = index">
+          <div class="grid-parent-class">
+            <div class="grid-background-image" [ngStyle]="{'background-image':'url('+item.thumbnail_image+')'}">
+            </div>
+            <div class="date-class">
+              {{item.publish_date}}
+            </div>
+            <div class="text-class">
+              {{item.title}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <ion-col>
+        <div class="latest-feeds-grid">
+          <div class="grid-parent-class">
+            <div class="grid-background-image-2">
+            </div>
+            <div class="date-class">
+              January 01
+            </div>
+            <div class="text-class">
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+            </div>
+          </div>
+        </div>
+      </ion-col> -->
+    </div>
+  </div>
+
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
 </ion-content>

@@ -1,0 +1,155 @@
+ion-content {
+    // height: 100%;
+    --background: url("../../assets/loginbg.jpg");
+}
+.main-content {
+    .logo {
+        text-align: center;
+        font-size: 25px;
+        color: white;
+        padding-top: 15%;
+        padding-bottom: 20%;
+    }
+}
+.main-form-class {
+    padding: 0 40px 0 40px;
+    .usernameClass {
+        display: grid;
+        input {
+            height: 55px;
+            background: transparent;
+            border: 1px solid grey;
+            border-radius: 35px;
+            outline: none;
+            padding-left: 10px;
+            color: white;
+            font-size: 12px;
+        }
+        label {
+            color: white;
+            font-size: 14px;
+            padding-bottom: 10px;
+        }
+    }
+    .passwordClass {
+        display: grid;
+        input {
+            height: 55px;
+            background: transparent;
+            border: 1px solid grey;
+            border-top-left-radius: 35px;
+            border-bottom-left-radius: 35px;
+            outline: none;
+            padding-left: 10px;
+            color: white;
+            /* width: -webkit-fill-available; */
+            width: 87%;
+            border-right: none;
+        }
+        label {
+            color: white;
+            font-size: 14px;
+            padding-bottom: 10px;
+        }
+        .showPassword {
+            display: flex;
+            .showpasswordIcon {
+            margin-left: -9px;
+            padding: 16px;
+            border: 1px solid grey;
+            border-left: none;
+            border-top-right-radius: 35px;
+            border-bottom-right-radius: 35px;
+            ion-icon {
+                color: grey;
+            }
+            }
+        }
+
+    }
+    .submitButton {
+        button {
+            width: 100%;
+            height: 40px;
+            border-radius: 35px;
+            background: #ec3a8b;
+            margin-top: 15px;
+            color: white;
+            outline: none;
+        }
+    }
+}
+.forgotPassword {
+    p {
+        text-align: center;
+        padding-top: 15px;
+        font-size: 13px;
+        color: white;
+    }
+}
+.socialIcons {
+    padding-top: 8%;
+    .socialIcons-parent {
+    .googleClass {
+        // background-image: url('../../assets/google.png');
+        // background-repeat: no-repeat;
+        // background-size: contain;
+        width: 100%;
+        text-align: center;
+        img {
+            width: 27px;
+            background: white;
+            padding: 4px;
+            /* border: 1px solid red; */
+            border-radius: 14px;
+            margin: 10px;
+        }
+        span {
+            font-size: 12px;
+            color: white;
+        }
+    }
+}
+}
+.hrClass {
+    display: flex;
+    padding: 20% 40px 0 40px;
+    @media screen and (max-width: 992px) {
+        padding: 12% 40px 0 40px;
+      }
+    .hr {
+        width: 45%;
+        hr {
+            border: 0;
+            clear: both;
+            display: block;
+            width: 90%;
+            background-color:wheat;;
+            height: 1px;
+        }
+    }
+    span {
+        color: white;
+    }
+}
+.noAccount{
+    text-align: center;
+    p {
+        color: white;
+        font-size: 13px;
+    }
+    @media screen and (max-width: 415px) {
+        padding-top: 15%;
+        text-align: center;
+    @media screen and (max-width: 360px) {
+        padding-top: 3%;
+      }
+    }
+}
+
+// ion-item::part(native) {
+//     background-color: red;
+// }
+// .usernameClass {
+//     padding: 50% 20px 0 20px;
+// }

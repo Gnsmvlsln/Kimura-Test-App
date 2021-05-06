@@ -1,0 +1,127 @@
+.header-image {
+    background: url('../../assets/purple-and-pink-background.jpg') 0 0/100% 100%  no-repeat;
+    height: 30%;
+    .header-top-div {
+      width: 100%;
+      display: flex;
+      height: 60px;
+
+    .header-top-div-two {
+        padding: 20px;
+        height: 60px;
+        .header-top-div-two-child {
+        height: 35px;
+        width: 35px;
+        border-radius: 17px;
+        margin-right: 10px;
+        ion-icon {
+            font-size: 33px;
+            color: grey;}
+        }
+    }
+    .header-top-div-three {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        padding: 20px;
+        height: 60px;
+            .search-class {
+                height: 35px;
+                width: 35px;
+                border-radius: 17px;
+                background: #f9f1f1;
+                opacity: 0.6;
+                margin-right: 10px;
+                ion-icon {
+                    padding: 7px;
+                    font-size: 20px;
+                }
+            }
+            .profile-class {
+                height: 35px;
+                width: 35px;
+                border-radius: 17px;
+                background: red;
+                .avatar-image {
+                    max-width: 56% !important;
+                    max-height: 38px !important;
+                }
+            }
+    }
+    }
+    .header-text-class {
+        padding-left: 27px;
+        .user-name-class {
+            margin-top: 14px;
+            padding: 0;
+            color: white;
+            padding-top: 7px;
+        }
+    }
+}
+.body-tab-class-parent {
+    width: 85%;
+    background: white;
+    margin-left: 7%;
+    height: 15%;
+    border-radius: 10px;
+    margin-top: -47px;
+    .body-tab-class-child {
+        // display: flex;
+        padding: 20px;
+        padding-top: 4%;
+        padding-bottom: 3%;
+        justify-content: space-between;
+        box-shadow: -4px 20px 74px grey;
+        border-radius: 10px;
+        .video-list-parent {
+            border: 1px solid grey;
+            border-radius: 10px;
+            padding: 5px;
+            margin-bottom: 10px;
+            .video-list-inner {
+                display: block;
+                .sub-parent{
+                    display: flex;
+                // padding: 0 0 20px 0;
+                .video-thumbnail {
+                    height: 65px;
+                    background: red;
+                    width: 80px;
+                    border-radius: 10px;
+                    background-size: cover;
+                }
+                .video-details {
+                    padding: 15px;
+                    .video-header {
+                        font-size: 12px;
+                    }
+                    .video-text {
+                        font-size: 12px;
+                        width: 200px;
+                    }
+                    .video-type {
+                        padding-top: 10px;
+                        font-size: 13px;
+                    }
+                    .playVideoParent{
+                        font-size: 13px;
+                        display: flex;
+                    .playVideo {
+                        a{
+                            color: green;
+                        }
+
+                    }
+                }
+                }
+            }
+            }
+        }
+        .video-library-head {
+            padding: 5px 0 15px 0;
+            font-size: 25px;
+            font-weight: 500;
+        }
+    }
+}

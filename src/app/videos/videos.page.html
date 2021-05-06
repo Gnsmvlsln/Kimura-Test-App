@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true">
+  <div class="header-image">
+    <div class="header-top-div">
+      <div class="header-top-div-two">
+        <div class="header-top-div-two-child">
+          <ion-icon name="chevron-back" (click)="navigateBack()"></ion-icon>
+        </div>
+      </div>
+      <div class="header-top-div-three">
+
+        <div class="profile-class">
+          <ion-avatar>
+            <img style="max-width: 56%;
+            max-height: 38px" class="avatr-image" src="../../assets/men.jpeg">
+          </ion-avatar>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  <div class="body-tab-class-parent">
+    <div class="body-tab-class-child">
+      <div class="video-library-head">Video Library</div>
+      <div class="video-list-parent" *ngFor="let video of videolIst">
+        <div class="video-list-inner" >
+          <div class="sub-parent">
+          <div class="video-thumbnail" [ngStyle]="{'background-image':'url('+video.thumbnail+')'}">
+
+          </div>
+          <div class="video-details">
+            <div>
+            <div class="video-text">{{video.title}}</div>
+            <div class="video-type">{{video.video_type | uppercase}} |  <span>Buy at {{video.price}}</span></div>
+            <div class="playVideoParent">
+            <div class="playVideo"><a (click)="LibraryItemClicked(video.library_id)">Play Video  </a></div>
+            <div class="readMore" *ngIf="video.description"><a (click)="showDescription(video.library_id)"> | Read <span *ngIf="!isShowDescription">more</span><span *ngIf="isShowDescription">Less</span></a></div>
+          </div>
+          </div>
+            <!-- <div class="video-header">Published on : {{video.created_at}}</div> -->
+          </div>
+        </div>
+          <div *ngIf="video.description && isShowDescription && libId === video.library_id" >
+            <!-- {{}} -->
+            <span [innerHTML]="video.description"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
